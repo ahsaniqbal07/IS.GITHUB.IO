@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up & Sign In | IQBAL SON'S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-gray-900 text-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 border-b border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="/index.html" class="flex items-center space-x-3">
+                <span class="text-2xl font-bold text-white">IQBAL SON'S</span>
+            </a>
+
+            <div class="hidden w-full md:flex md:w-auto md:order-1">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0">
+                    <li><a href="/index.html" class="block py-2 px-3 hover:text-blue-400 md:p-0">Home</a></li>
+                    <li><a href="/assest/pages/contact/about/about.html"
+                            class="block py-2 px-3 hover:text-blue-400 md:p-0">About</a></li>
+                    <li><a href="/assest/pages/contact/contact.html"
+                            class="block py-2 px-3 hover:text-blue-400 md:p-0">Contact</a></li>
+                    <li><a href="/assest/pages/contact/about/signup/signup.html"
+                            class="block py-2 px-3 text-blue-400 md:p-0">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="pt-28 pb-16 flex justify-center px-4">
+        <div class="w-full max-w-4xl grid md:grid-cols-2 gap-8">
+
+            <!-- Sign Up Form -->
+            <div class="bg-gray-800 border border-gray-700 rounded-lg shadow p-8">
+                <h1 class="text-2xl font-bold text-center mb-6 text-white">Create an Account</h1>
+                <form class="space-y-6" onsubmit="return validateSignupForm()">
+                    <div>
+                        <label for="signup-name" class="block mb-2 text-sm font-medium">Full Name</label>
+                        <input type="text" id="signup-name" required
+                            class="bg-gray-700 border border-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                            placeholder="John Doe">
+                    </div>
+
+                    <div>
+                        <label for="signup-email" class="block mb-2 text-sm font-medium">Email</label>
+                        <input type="email" id="signup-email" required
+                            class="bg-gray-700 border border-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                            placeholder="example@email.com">
+                    </div>
+
+                    <div>
+                        <label for="signup-password" class="block mb-2 text-sm font-medium">Password</label>
+                        <input type="password" id="signup-password" required minlength="6"
+                            class="bg-gray-700 border border-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                            placeholder="••••••••">
+                    </div>
+
+                    <div>
+                        <label for="signup-confirm" class="block mb-2 text-sm font-medium">Confirm Password</label>
+                        <input type="password" id="signup-confirm" required
+                            class="bg-gray-700 border border-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                            placeholder="••••••••">
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="signup-terms" type="checkbox" required
+                                class="w-4 h-4 border border-gray-600 rounded bg-gray-700 focus:ring-3 focus:ring-blue-500">
+                        </div>
+                        <label for="signup-terms" class="ml-2 text-sm font-medium text-gray-300">
+                            I agree to the <a href="#" class="text-blue-400 hover:underline">Terms and Conditions</a>.
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Create Account
+                    </button>
+
+                    <p class="text-sm font-light text-gray-400 text-center">
+                        Already have an account?
+                        <a href="#signin" class="font-medium text-blue-400 hover:underline">Sign in</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Sign In Form -->
+            <div id="signin" class="bg-gray-800 border border-gray-700 rounded-lg shadow p-8">
+                <h1 class="text-2xl font-bold text-center mb-6 text-white">Sign In</h1>
+                <form class="space-y-6" onsubmit="return validateSigninForm()">
+                    <div>
+                        <label for="signin-email" class="block mb-2 text-sm font-medium">Email</label>
+                        <input type="email" id="signin-email" required
+                            class="bg-gray-700 border border-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                            placeholder="example@email.com">
+                    </div>
+
+                    <div>
+                        <label for="signin-password" class="block mb-2 text-sm font-medium">Password</label>
+                        <input type="password" id="signin-password" required minlength="6"
+                            class="bg-gray-700 border border-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-white"
+                            placeholder="••••••••">
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember" type="checkbox"
+                                class="w-4 h-4 border border-gray-600 rounded bg-gray-700 focus:ring-3 focus:ring-blue-500">
+                            <label for="remember" class="ml-2 text-sm text-gray-300">Remember me</label>
+                        </div>
+                        <a href="#" class="text-sm text-blue-400 hover:underline">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Sign In
+                    </button>
+
+                    <p class="text-sm font-light text-gray-400 text-center">
+                        Don’t have an account?
+                        <a href="#signup" class="font-medium text-blue-400 hover:underline">Sign up</a>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-10">
+        <div class="w-full max-w-screen-xl mx-auto p-6 flex flex-col md:flex-row items-center justify-between">
+            <span class="text-sm text-gray-400">© 2025 IQBAL SON'S. All Rights Reserved.</span>
+            <ul class="flex space-x-4 text-sm text-gray-400">
+                <li><a href="/assest/pages/contact/about/about.html" class="hover:text-blue-400">About</a></li>
+                <li><a href="/assest/pages/contact/contact.html" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
